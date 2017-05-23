@@ -41,7 +41,7 @@ public class Sender {
             connection.close();
         } catch (JMSException e) {
             e.printStackTrace();
-            System.out.println("Some shit happened");
+            System.out.println("Some error occurred");
         }
     }
 }
