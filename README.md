@@ -4,8 +4,8 @@ There are two projects: one for the sender and one for the receiver. You have to
 
 See the README files in their corresponding project directories.
 
-* [Sender](jms-activemq-sender)
-* [Receiver](jms-activemq-receiver)
+* [Sender](./jms-activemq-sender)
+* [Receiver](./jms-activemq-receiver)
 
 ## FYI
 
