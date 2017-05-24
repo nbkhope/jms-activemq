@@ -8,10 +8,12 @@ import javax.jms.Message;
 import javax.jms.MessageConsumer;
 import javax.jms.Session;
 import javax.jms.TextMessage;
+
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 public class Receiver {
+    
     private ConnectionFactory factory;
     private Connection connection;
     private Session session;
@@ -23,33 +25,46 @@ public class Receiver {
 
     public void receiveMessage() {
         try {
-            System.out.println("Trying...");
+            // Create a ConnectionFactory
             factory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_BROKER_URL);
             System.out.println("Factory set");
+
+            // Create a Connection
             connection = factory.createConnection();
             connection.start();
 
             System.out.println("Creating session");
             session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+
+            // Create the destination (Topic or Queue)
             destination = session.createQueue("SAMPLEQUEUE");
+
+            // Create a MessageConsumer from the Session to the Topic or Queue
             consumer = session.createConsumer(destination);
             
-            System.out.println("Setting message");
+            System.out.println("Waiting for message...");
             Message message = consumer.receive();
 
             // System.out.println("Message is ...");
             // System.out.println(message);
             if (message instanceof TextMessage) {
-                TextMessage text = (TextMessage) message;
-                System.out.println("Message is : " + text.getText());
+                TextMessage textMessage = (TextMessage) message;
+                System.out.println("Message is : " + textMessage.getText());
             }
-            System.out.println("End");
+
+            // Clean up
+            consumer.close();
+            session.close();
             connection.close();
+
+            System.out.println("-- End --");
         } catch (JMSException e) {
             System.out.println("Receiver failed");
             e.printStackTrace();
         } catch (Exception e) {
             System.out.println("Some other error occurred!");
+            System.out.println(e);
+            // e.printStackTrace();
         }
     }
 }
