@@ -12,14 +12,13 @@ import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 public class Receiver {
-    private ConnectionFactory factory = null;
-    private Connection connection = null;
-    private Session session = null;
-    private Destination destination = null;
-    private MessageConsumer consumer = null;
+    private ConnectionFactory factory;
+    private Connection connection;
+    private Session session;
+    private Destination destination;
+    private MessageConsumer consumer;
 
     public Receiver() {
-
     }
 
     public void receiveMessage() {

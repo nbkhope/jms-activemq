@@ -12,11 +12,11 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 public class Sender {
 
-    private ConnectionFactory factory = null;
-    private Connection connection = null;
-    private Session session = null;
-    private Destination destination = null;
-    private MessageProducer producer = null;
+    private ConnectionFactory factory;
+    private Connection connection;
+    private Session session;
+    private Destination destination;
+    private MessageProducer producer;
 
     public Sender() {
 
