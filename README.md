@@ -12,3 +12,8 @@ See the README files in their corresponding project directories.
 * ActiveMQ Admin Page - http://localhost:8161/admin/
 * This example was based on a [tutorial by CoderPanda](http://www.coderpanda.com/jms-example-using-apache-activemq/)
 * The projects use Maven as the build system
+
+## Understand JMS
+
+* https://en.wikipedia.org/wiki/Java_Message_Service
+* https://www.javatpoint.com/jms-tutorial
